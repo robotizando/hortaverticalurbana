@@ -1,4 +1,4 @@
-# hortaverticalurbana
+# Horta Vertical Urbana Livre
 
 Repositório do material desenvolvido para a Horta Vertical Urbana
 
