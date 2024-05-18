@@ -546,24 +546,7 @@ void deleteRecursive(String path) {
    Delete file    | parent of deleted file, or remaining ancestor
    Delete folder  | parent of deleted folder, or remaining ancestor
 */
-void handleFileDelete() {
-  if (!fsOK) {
-    return replyServerError(FPSTR(FS_INIT_ERROR));
-  }
 
-  String path = server.arg(0);
-  if (path.isEmpty() || path == "/") {
-    return replyBadRequest("BAD PATH");
-  }
-
-  DBG_OUTPUT_PORT.println(String("handleFileDelete: ") + path);
-  if (!fileSystem->exists(path)) {
-    return replyNotFound(FPSTR(FILE_NOT_FOUND));
-  }
-  deleteRecursive(path);
-
-  replyOKWithMsg(lastExistingParent(path));
-}
 
 /*
    Handle a file upload request
